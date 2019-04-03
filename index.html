@@ -4,17 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Mickey Haunted House</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="background">
   <div class="container">
-    <canvas width="1000" height="600"></canvas>
+    <div>
+      <img class="ghost" src="./images/New Project.png" alt="">
+      <!-- <div class="frame"></div> -->
+      <canvas class="canvas" width="1000" height="600"></canvas>
+     </canvas>
+    </div>
   </div>
+  
+  <div id='startid' class='start'>
+    <img src="./images/New Project (1).png" class="ImgInicio" alt="">
+
+    <div>
+        <button type="button" id='playid' class="btn btn-outline-warning">Play</button>
+    </div>
+
+  </div>
+
     <script src="Background.js"></script>
     <script src="Platform.js"></script>
   <script src="Enemy.js"></script>
   <script src="Player.js"></script>
+  <script src="Key.js"></script>
+  <script src="Door.js"></script>
+  <script src="Minnie.js"></script>
+
+
+
 
   <script src="main.js"></script>
   

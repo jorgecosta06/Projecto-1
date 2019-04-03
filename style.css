@@ -3,7 +3,7 @@ canvas {
   border: 1px solid black;
   max-height: calc(100vh - 120px);
   max-width: 95vw;
-  margin: auto;
+  /* margin: auto; */
 
 }
 
@@ -12,4 +12,50 @@ canvas {
   position: relative;
   justify-content: center;
   align-items: flex-end;
+ }
+
+ .canvas{
+   border-color: #773f4c;
+   border-width: 10px;
+   border-radius: 5px;
+ }
+ 
+ .ghost{
+   display: flex;
+   justify-content: center;
+   height: 100px;
+   line-height: 50px;
+   margin: 25px;
+
+ }
+
+ .background{
+   background-image: url('/images/environment.png')
+ }
+
+ .start {
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    top: 25vh;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #0c0d29;
+    border-radius: 5px;
+ }
+
+ .ImgInicio {
+    width:500px;
+    height: 550px;
+   margin: 10px 0px 10px 15px;
+ }
+
+ .btn{
+   display: flex;
+   align-content: flex-start;
+   position: absolute;
+   bottom: 50px;
+   left: 84px;
+   z-index: 3;
  }
