@@ -4,8 +4,8 @@ class Enemy {
       this.radius = 30
       this.y = this.radius+Math.floor((CANVAS_HEIGHT-2*this.radius)*Math.random())
       this.x = -10;
-      this.vx = 2 // Velocity y
-      console.log(this.x, this.y);
+      this.vx = 2  // Velocity y
+      // console.log(this.x, this.y);
     
       this.ghostImg = new Image();
       this.ghostImg.src = './images/ghostright.png'

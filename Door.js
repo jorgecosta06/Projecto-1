@@ -10,7 +10,9 @@ class Door {
     this.doorImageOpened = new Image();
     this.doorImageOpened.src = './images/OpenDoor2.png'
     this.isOpened = false
+    
   }
+
 
   draw(ctx) {
     ctx.beginPath();

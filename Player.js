@@ -11,6 +11,7 @@ class Player {
     this.vy = 0
     this.position = 'down'
     this.alreadyJumped = false
+    this.life = 3
 
     this.playerImg = new Image();
     this.playerImg.src = './images/Mickey2.png'
@@ -20,6 +21,16 @@ class Player {
     this.playerImgRight.src = './images/MickeyRight2.gif'
     this.playerImgUp = new Image();
     this.playerImgUp.src = './images/MickeyJump.png'
+    this.hearts = new Image();
+    this.hearts.src = './images/hearts.png'
+
+    // --- Sound Effects ---
+
+    let jumpSound = new Audio()
+    jumpSound.src = "./Sounds/jumpSound.mp3"
+
+
+    // --- Movements Keys ---
 
     document.onkeydown = event => {
       event.preventDefault()
@@ -37,9 +48,11 @@ class Player {
           this.direction = "right"
         }
       }
-      if (event.keyCode === 38 && !this.alreadyJumped) { // up
+      if (event.keyCode === 38 && !this.alreadyJumped ) { // up
           this.direction = "up"
+          jumpSound.play()
       }
+
     }
 
     
@@ -55,8 +68,8 @@ class Player {
   draw(ctx) {
     ctx.save()
     if (DEBUG) {
-      ctx.save()
       // ctx.globalAlpha = 0.7
+      ctx.save()
       ctx.fillStyle = "red"
       ctx.beginPath()
       ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI)
@@ -86,8 +99,27 @@ class Player {
         
         break;
       }
+      
     }
-    ctx.drawImage(img, this.x-this.radius, this.top(), 2*this.radius, this.height)
+    
+
+    // if player loses change the image
+    if (player.life === 0){
+      ctx.drawImage(this.playerImgUp, this.x-this.radius, this.top(), 2*this.radius, this.height)
+    } else {
+      ctx.drawImage(img, this.x-this.radius, this.top(), 2*this.radius, this.height)
+    }
+
+    // Draw the hearts
+    let heartSize = 30
+    let x = 10
+    let y = 10
+    for (let i = 0; i < this.life; i++) {
+      ctx.drawImage(this.hearts,x,y,heartSize,heartSize)
+      // ctx.fillStyle = "#bb0000"
+      // ctx.fillRect(x,y,heartSize,heartSize)
+      x += heartSize*1.5
+    }
 
     ctx.restore()
   }
@@ -139,10 +171,7 @@ class Player {
       } */
       
       
-      if (this.y + this.height === platforms.y) {
-        this.y = platforms.y - this.height
-      }
-      while (this.bottom() > CANVAS_HEIGHT) {
+      while (this.bottom() > CANVAS_HEIGHT && this.life !== 0) {
         this.y = Math.floor(this.y - 1)
         this.alreadyJumped = false
         this.vy = 0

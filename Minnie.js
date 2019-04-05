@@ -11,6 +11,9 @@ class Minnie {
     this.minnieHappy = new Image();
     this.minnieHappy.src = './images/Minnie.png'
     this.isScared = false
+
+    this.cageImg = new Image();
+    this.cageImg.src = './images/cage.png'
   }
 
   draw(ctx) {
@@ -25,12 +28,16 @@ class Minnie {
       // ctx.fill()
       ctx.restore()
     }
-    if (!this.isScared)
+    if (!this.isScared){
       ctx.drawImage(this.minnieScared, this.x-this.radius, this.y, 2*this.radius, this.height)
+      ctx.drawImage(this.cageImg, this.x-this.radius, this.y, 2.5*this.radius, this.height)
+    }
     else {
       ctx.drawImage(this.minnieHappy, this.x-this.radius, this.y, 2*this.radius, this.height)
 
     }
+
+
 
     ctx.restore()
   }
