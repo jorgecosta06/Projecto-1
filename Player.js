@@ -51,6 +51,8 @@ class Player {
       if (event.keyCode === 38 && !this.alreadyJumped ) { // up
           this.direction = "up"
           jumpSound.play()
+          console.log('this.x - ', this.x)
+          console.log('this.y - ', this.y)
       }
 
     }

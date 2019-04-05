@@ -41,9 +41,30 @@ music.src = "./Sounds/Not As It Seems.mp3"
 
 // --- Calling ---
 
+var stop = false
+
 function animation() {
+  if (stop){
+    if (bandeira) {
+      // --- EasterEgg ---
+      ctx.fillRect(0,0,CANVAS_WIDTH, CANVAS_HEIGHT)
+      ctx.drawImage(easterEggImg, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+    }
+    else {
+      ctx.fillStyle = "#0c0d29"
+      ctx.fillRect(0,0,CANVAS_WIDTH, CANVAS_HEIGHT)
+      ctx.drawImage(WinImg, 0, 0 , CANVAS_WIDTH, CANVAS_HEIGHT )
+    }
+    return  
+  }
+  if (isGameWon) {
+    // displayGameWon()
+    stop = true
+    // stop the function
+  }
   if (player.y > CANVAS_HEIGHT) {
     displayGameLost()
+    return
   }
   else {
     updateEverything()
@@ -57,10 +78,6 @@ function animation() {
 
 function drawEverything(){
   ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
-  if (isGameWon) {
-    displayGameWon()
-    return // stop the function
-  }
   bg.draw(ctx)
   for (let i = 0; i < platforms.length; i++){
     platforms[i].draw(ctx)
@@ -235,5 +252,3 @@ function displayGameLost(){
  ctx.fillRect(0,0,CANVAS_WIDTH, CANVAS_HEIGHT)
  ctx.drawImage(gameOverImg, 150, 100, CANVAS_WIDTH/1.5, CANVAS_HEIGHT/1.5)
 }
-
-// --- Easter egg ---
