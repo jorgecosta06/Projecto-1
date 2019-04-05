@@ -28,7 +28,7 @@ canvas {
  }
 
  .background{
-   background-image: url('/images/environment.png');
+   background-image: url('./images/environment.png');
    background-size: cover;
    min-height: 100vh;
    background-position: center;

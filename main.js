@@ -228,7 +228,7 @@ function displayGameWon(){
 // --- Lose Game ---
 
 let gameOverImg = new Image()
-gameOverImg.src = '/images/Lose.png'
+gameOverImg.src = './images/Lose.png'
 
 function displayGameLost(){
  ctx.fillStyle = "#0c0d29"
